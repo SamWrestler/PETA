@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\IndexController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [IndexController::class, 'index']);
+Route::get('/{data}/changeLang', [IndexController::class, 'changeLang'])->name('changeLang');
+Route::get('/admin:8080', [AdminController::class , 'index']);
+Auth::routes();
 
-Route::get('/admin:8080', function(){
-    return view('admin.index');
-});
+

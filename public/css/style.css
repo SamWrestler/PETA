@@ -83,7 +83,7 @@ header .info {
     grid-template-columns: 1fr;
 
 }
-.language {
+.language a {
     font-size: 1rem;
     color: var(--light-white);
     width: 100%;
@@ -92,11 +92,18 @@ header .info {
     display: flex;
     align-items: center;
     gap: 10px;
+    cursor: pointer;
+    text-decoration: none;
 }
 .lang-desktop {
     display: none;
 }
-
+.rtl__direction {
+    direction: rtl;
+}
+.ltr__direction {
+    direction: ltr !important;
+}
 .info {
     width: 100%;
     display: flex;
@@ -105,9 +112,9 @@ header .info {
     text-align: justify;
     margin-top: 1.5rem;
     gap: 1rem;
-    direction: rtl;
     color: var(--light-white);
 }
+
 .info .info__title {
     font-weight: 800;
     font-size: 1rem;
@@ -136,7 +143,6 @@ header .info {
 }
 #first .promo p {
     font-weight: 300;
-    direction: rtl;
     text-align: center;
     line-height: 1.8rem;
 }
@@ -200,7 +206,6 @@ header .info {
     border-radius: 0.75rem;
     background-color: var(--light-white);
     font-family: rubik,iransans;
-    direction: rtl;
 }
 .form__input input:focus {
     outline: none;
@@ -230,7 +235,6 @@ footer {
     width: 100%;
     background-color: var(--dark-color);
     display: grid;
-    direction: rtl;
     padding: 3.125rem 0;
     gap: 1rem;
 }
@@ -272,8 +276,13 @@ footer img {
     border-radius: 1.5rem;
 }
 .numbers .footer__row__description {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.numbers .footer__row__description a {
+    color: var(--light-white);
     direction: ltr;
-    text-align: right;
 }
 #email__link {
     display: flex;
@@ -546,16 +555,20 @@ footer img {
     header {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(12,35px);
+        grid-template-rows: repeat(12,55px);
     }
+    .lang-desktop {
+        margin-left: 1rem;
 
+    }
     header .brand{
         grid-column: 2/3;
+        grid-row-start: 2;
     }
     header .info {
         display: flex;
         grid-column: 1/2;
-        grid-row: 1/2;
+        grid-row-start: 7;
         justify-content: center;
         align-items: center;
         padding: 0 1rem;
@@ -592,7 +605,7 @@ footer img {
 @media (min-width:1024px){
     header {
         grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: repeat(12,75px);
+        grid-template-rows: repeat(12,100px);
     }
     header .brand button {
         display: none;

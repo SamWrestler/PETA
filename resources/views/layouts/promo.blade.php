@@ -1,31 +1,26 @@
 <section id="first" class="container">
         <article class="info">
-            <h2 class="info__title">پترو انرژی تجارت آسمان</h2>
-            <p class="info__description">
-                شرکت پترو انرژی تجارت آسمان یکی از برجسته‌ترین نام‌های صنعت نفت و گاز در ایران است که به تجارت و صادرات
-                فراورده‌های نفتی در سطح جهانی مشغول می‌باشد. با بیش از دو دهه تجربه در این صنعت و تخصص‌های فنی و مهندسی
-                برجسته، ما به عنوان یک شریک استراتژیک قابل اعتماد در زمینه تأمین و صادرات محصولات نفتی شناخته می‌شویم.
-            </p>
+            <h2 class="info__title">{{__('index.brand__name')}}</h2>
+            <p class="info__description">{{__('index.brand__info')}}</p>
         </article>
         <article class="promo">
             <img src="/images/svgs/oil.svg" alt="">
-            <h2>فراورده‌های نفتی متنوع</h2>
-            <p>تولید و تأمین مجموعه‌گسترده‌ای از محصولات نفتی از جمله نفت خام، گازوئیل، بنزین، مازوت، لوازم جانبی صنعت
-                نفت، و محصولات پتروشیمی.</p>
+            <h2>{{__('index.export')}}</h2>
+            <p class="@if(app()->currentLocale()==='en') ltr__direction @else rtl__direction @endif">{{__('index.export__info')}}</p>
         </article>
         <article class="promo">
             <img src="/images/svgs/export.svg" alt="">
-            <h2>صادرات بین‌المللی</h2>
-            <p>همکاری با مشتریان و تأمین‌کنندگان جهانی و صادرات محصولات با کیفیت بالا و قیمت رقابتی.</p>
+            <h2>{{__('index.products')}}</h2>
+            <p class="@if(app()->currentLocale()==='en') ltr__direction @else rtl__direction @endif">{{__('index.products__info')}}</p>
         </article>
         <article class="promo">
             <img src="/images/svgs/consult.svg" alt="">
-            <h2>مشاوره و خدمات فنی</h2>
-            <p>تیم‌های مهندسی و تخصصی برای ارائه مشاوره‌های فنی و راه‌حل‌های بهینه</p>
+            <h2>{{__('index.consultant')}}</h2>
+            <p class="@if(app()->currentLocale()==='en') ltr__direction @else rtl__direction @endif">{{__('index.consultant__info')}}</p>
         </article>
         <article class="promo">
             <img src="/images/svgs/nature.svg" alt="">
-            <h2>پایداری محیطی</h2>
-            <p>تعهد به پایداری محیطی و بهبودهای مستمر در فرآیندهای محیطی</p>
+            <h2>{{__('index.environment')}}</h2>
+            <p class="@if(app()->currentLocale()==='en') ltr__direction @else rtl__direction @endif">{{__('index.environment__info')}}</p>
         </article>
     </section>
