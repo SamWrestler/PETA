@@ -29,6 +29,12 @@ body {
     padding-right: 0.75rem;
     padding-left: 0.75rem;
 }
+.rtl__direction {
+    direction: rtl !important;
+}
+.ltr__direction {
+    direction: ltr !important;
+}
 header {
     background-image: url('../images/company.png');
     background-repeat: no-repeat;
@@ -98,12 +104,7 @@ header .info {
 .lang-desktop {
     display: none;
 }
-.rtl__direction {
-    direction: rtl;
-}
-.ltr__direction {
-    direction: ltr !important;
-}
+
 .info {
     width: 100%;
     display: flex;
@@ -112,6 +113,7 @@ header .info {
     text-align: justify;
     margin-top: 1.5rem;
     gap: 1rem;
+
     color: var(--light-white);
 }
 
@@ -509,6 +511,12 @@ footer img {
 /* Admin Panel */
 
 @media (min-width:475px) {
+    .rtl__direction {
+        direction: rtl !important;
+    }
+    .ltr__direction {
+        direction: ltr !important;
+    }
     .promo p {
         margin: 0 2rem;
     }
@@ -518,6 +526,12 @@ footer img {
 }
 
 @media (min-width:600px){
+    .rtl__direction {
+        direction: rtl !important;
+    }
+    .ltr__direction {
+        direction: ltr !important;
+    }
     #first {
         grid-template-columns: 1fr 1fr;
     }
@@ -551,7 +565,12 @@ footer img {
 }
 
 @media (min-width:768px) {
-
+    .rtl__direction {
+        direction: rtl !important;
+    }
+    .ltr__direction {
+        direction: ltr !important;
+    }
     header {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -603,6 +622,12 @@ footer img {
 }
 
 @media (min-width:1024px){
+    .rtl__direction {
+        direction: rtl !important;
+    }
+    .ltr__direction {
+        direction: ltr !important;
+    }
     header {
         grid-template-columns: repeat(12, 1fr);
         grid-template-rows: repeat(12,100px);
