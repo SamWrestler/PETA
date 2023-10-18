@@ -1,14 +1,14 @@
-<article class="reserve__card">
+<article class="reserve__card @if(app()->currentLocale() === 'fa') rtl__direction @else ltr__direction @endif">
     <div class="reserve__card__row">
-        <h2 class="reserve__subject">نام شرکت: </h2>
+        <h2 class="reserve__subject">{{__('admin.reserve__company__name')}}: </h2>
         <h2 class="reserve__info">پترو انرژی تجارت آسمان</h2>
     </div>
     <div class="reserve__card__row">
-        <h2 class="reserve__subject">ایمیل شرکت: </h2>
+        <h2 class="reserve__subject">{{__('admin.reserve__company__email')}}: </h2>
         <h2 class="reserve__info">test@gmail.com</h2>
     </div>
     <div class="reserve__card__row">
-        <h2 class="reserve__subject">شماره شرکت: </h2>
+        <h2 class="reserve__subject">{{__('admin.reserve__company__number')}}: </h2>
         <h2 class="reserve__info">09352214805</h2>
     </div>
     <div class="reserve__card__row__buttons">
@@ -25,5 +25,5 @@
 </article>
 <div class="nothing">
     <i class="fa-thin fa-empty-set"></i>
-    <h2>رزروی برای نمایش وجود ندارد</h2>
+    <h2>{{__('admin.no__reserve')}}</h2>
 </div>

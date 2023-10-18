@@ -5,7 +5,7 @@
         </h2>
         <p class="footer__row__description">{{Trans::translate('address__info')}}
         </p>
-        <a href="https://www.google.com/maps?q=35.800550497322085,51.404982452020015" target="_blank" class="location"><img class="img" src="/images/location.png" alt="Location"></a>
+        <a href="{{Trans::translate('address__coordinates')}}" target="_blank" class="location"><img class="img" src="/images/location.png" alt="Location"></a>
     </div>
     <div class="area">
         <div class="footer__row">

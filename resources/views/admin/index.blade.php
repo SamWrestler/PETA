@@ -11,31 +11,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js" defer></script>
     <script src="/js/app.js" defer></script>
-    <title>پنل مدیریت</title>
+    <title>{{__('admin.admin__page__title')}}</title>
 </head>
 <body>
 <header class="container" id="admin__header">
     <div class="header__top">
-        <h2>پنل مدیریت</h2>
+        <h2>{{__('admin.admin__page__title')}}</h2>
     </div>
     <nav class="header__topNavigation">
         <div class="nav__item" id="reserve__tab">
             <i class="fa-regular fa-list-dropdown"></i>
-            <h2>رزرو ها</h2>
+            <h2>{{__('admin.reserve')}}</h2>
         </div>
         <div class="nav__item" id="mainpage__tab">
             <i class="fa-solid fa-pen-to-square"></i>
-            <h2>صفحه اصلی</h2>
+            <h2>{{__('admin.mainpage')}}</h2>
         </div>
     </nav>
 </header>
 <div class="sections__container">
-    <section id="main" class="container hidden">
+    <section id="main" class="container hidden @if(app()->currentLocale() === 'fa') rtl__direction @else ltr__direction @endif">
         @include('admin.mainpage.title')
         <div class="main__section__container">
             @include('admin.mainpage.header')
+            @include('admin.mainpage.about')
             @include('admin.mainpage.promo')
-            @include('admin.mainpage.reserve')
             @include('admin.mainpage.footer')
         </div>
     </section>

@@ -1,25 +1,110 @@
-<article class="main__section">
+<article class="main__section ">
     <div class="main__section__title">
         <i class="fa-light fa-plus"></i>
-        <i class="fa-light fa-minus hidden hidden"></i>
-        <h2>توضیحات جامع</h2>
+        <i class="fa-light fa-minus hidden"></i>
+        <h2>{{__('admin.commercial')}}</h2>
     </div>
-    <div class="main__section__content hidden">
-
+    <div class="main__section__content hidden @if(app()->currentLocale() === 'fa') rtl__direction @else ltr__direction @endif">
+        <div class="notice__container">
+            <ul>
+                <li>{{__('admin.suggest3')}}</li>
+            </ul>
+        </div>
         <form action="#" class="main__form">
             <div class="main__form__input">
                 <label for="peta">
-                    عنوان
+                    {{__('admin.commer__title')}}
                 </label>
-                <input type="text" id="name" value="پترو انرژی تجارت آسمان">
+                <input type="text" id="name" class="red" value="{{Trans::translate('export')}}">
             </div>
             <div class="main__form__input">
                 <label for="peta__banner">
-                    توضیحات
+                    {{__('admin.commer__text')}}
                 </label>
-                <textarea name="info" id="info" cols="30" rows="10">شرکت پترو انرژی تجارت آسمان یکی از برجسته‌ترین نام‌های صنعت نفت و گاز در ایران است که به تجارت و صادرات فراورده‌های نفتی در سطح جهانی مشغول می‌باشد. با بیش از دو دهه تجربه در این صنعت و تخصص‌های فنی و مهندسی برجسته، ما به عنوان یک شریک استراتژیک قابل اعتماد در زمینه تأمین و صادرات محصولات نفتی شناخته می‌شویم.</textarea>
+                <textarea name="info " class="red" id="info" cols="30" rows="10">{{Trans::translate('export__info')}}</textarea>
             </div>
-            <button class="btn">ثبت تغییرات</button>
+            <div class="main__form__input">
+                <label for="peta__banner">
+                    {{__('admin.commer__image')}}
+                </label>
+                <input type="file" id="name" accept="image/JPEG" accpet="image/png" value="شعار شرکت">
+
+            </div>
+            <img src="" alt="" width="121px" height="90px">
+            <button class="btn">{{__('admin.save__changes')}}</button>
+            <hr>
+        </form>
+        <form action="#" class="main__form">
+            <div class="main__form__input">
+                <label for="peta">
+                    {{__('admin.commer__title')}}
+                </label>
+                <input type="text" id="name" class="orange" value="{{Trans::translate('products')}}">
+            </div>
+            <div class="main__form__input">
+                <label for="peta__banner">
+                    {{__('admin.commer__text')}}
+                </label>
+                <textarea name="info " class="orange" id="info" cols="30" rows="10">{{Trans::translate('products__info')}}</textarea>
+            </div>
+            <div class="main__form__input">
+                <label for="peta__banner">
+                    {{__('admin.commer__image')}}
+                </label>
+                <input type="file" id="name" accept="image/JPEG" accpet="image/png" value="شعار شرکت">
+
+            </div>
+            <img src="" alt="" width="121px" height="90px">
+            <button class="btn">{{__('admin.save__changes')}}</button>
+            <hr>
+        </form>
+        <form action="#" class="main__form">
+            <div class="main__form__input">
+                <label for="peta">
+                    {{__('admin.commer__title')}}
+                </label>
+                <input type="text" id="name" class="yellow" value="{{Trans::translate('consultant')}}">
+            </div>
+            <div class="main__form__input">
+                <label for="peta__banner">
+                    {{__('admin.commer__text')}}
+                </label>
+                <textarea name="info " class="yellow" id="info" cols="30" rows="10">{{Trans::translate('consultant__info')}}</textarea>
+            </div>
+            <div class="main__form__input">
+                <label for="peta__banner">
+                    {{__('admin.commer__image')}}
+                </label>
+                <input type="file" id="name" accept="image/JPEG" accpet="image/png" value="شعار شرکت">
+
+            </div>
+            <img src="" alt="" width="121px" height="90px">
+            <button class="btn">{{__('admin.save__changes')}}</button>
+            <hr>
+        </form>
+        <form action="#" class="main__form">
+            <div class="main__form__input">
+                <label for="peta">
+                    {{__('admin.commer__title')}}
+                </label>
+                <input type="text" id="name" class="green" value="{{Trans::translate('environment')}}">
+            </div>
+            <div class="main__form__input">
+                <label for="peta__banner">
+                    {{__('admin.commer__text')}}
+                </label>
+                <textarea name="info " class="green" id="info" cols="30" rows="10">{{Trans::translate('environment__info')}}</textarea>
+            </div>
+            <div class="main__form__input">
+                <label for="peta__banner">
+                    {{__('admin.commer__image')}}
+                </label>
+                <input type="file" id="name" accept="image/JPEG" accpet="image/png" value="شعار شرکت">
+
+            </div>
+            <img src="" alt="" width="121px" height="90px">
+            <button class="btn">{{__('admin.save__changes')}}</button>
+
         </form>
     </div>
 </article>

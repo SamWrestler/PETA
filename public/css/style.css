@@ -299,6 +299,8 @@ footer img {
 
 /* Admin Panel */
 
+
+
 #admin__header {
     display: flex;
     flex-direction: column;
@@ -600,6 +602,15 @@ footer img {
     }
     .lang-mobile {
         display: none;
+    }
+
+    .title__row {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .title__row .language a {
+        color: var(--dark-color) !important;
     }
 
     /* Admin Panel */
