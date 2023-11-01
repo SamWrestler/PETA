@@ -371,6 +371,13 @@ footer img {
     gap: 1rem;
     grid-template-columns: 1fr;
 }
+.error_box {
+    border: 1px solid var(--red-color) !important;
+    background-color: rgba(231, 76, 60,0.4) !important;
+}
+.notice__container {
+    display: flex;
+}
 .notice__container ul{
     display: flex;
     flex-direction: column;
@@ -379,6 +386,14 @@ footer img {
     list-style-type: disc;
     font-size: 0.75rem;
     list-style-position: inside;
+}
+.error {
+    margin: .625rem 0;
+}
+.error ul{
+    color: var(--red-color) !important;
+    text-align: right;
+
 }
 .main__form {
     width: 100%;
@@ -456,6 +471,12 @@ footer img {
     padding-top: 1.5rem;
     direction: rtl;
 }
+.cards__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr;
+    gap: .625rem;
+}
 .reserve__card {
     background-color: var(--white-color);
     border-radius: .625rem;
@@ -463,6 +484,11 @@ footer img {
     display: flex;
     flex-direction: column;
     gap: .625rem;
+}
+.reserve__action {
+    padding: .6rem .6rem;
+    border-radius: 50%;
+    color: var(--white-color) !important;
 }
 .reserve__card .reserve__card__row {
     display: flex;
@@ -564,6 +590,9 @@ footer img {
     #second .form .form__notice {
         font-size: .9rem;
     }
+    .cards__container {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media (min-width:768px) {
@@ -638,6 +667,9 @@ footer img {
     }
     .ltr__direction {
         direction: ltr !important;
+    }
+    .cards__container {
+        grid-template-columns: 1fr 1fr 1fr;
     }
     header {
         grid-template-columns: repeat(12, 1fr);

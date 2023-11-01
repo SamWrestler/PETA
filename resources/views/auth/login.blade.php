@@ -1,73 +1,59 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/Fonts/FontAwesome/css/all.css"/>
+    <link rel="stylesheet" href="/css/loginregister/reset.css" />
+    <link rel="stylesheet" href="/css/loginregister/loginregister.css" />
+    <link rel="stylesheet" href="/css/iransans.css" />
+    <title>Login</title>
+</head>
+
+<body>
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+    <div class="login-container">
+        <div class="header">
+            <h2>خوش آمدید 👋</h2>
+            <p>لطفا اطلاعات خود را وارد کنید!</p>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+        </div>
+        <div class="footer">
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <div class="input @error('email') error @enderror">
+                    <label for="email">ایمیل:</label>
+                    <div class="input-input ">
+                        <input type="email" name="email" id="email" placeholder="test@gmail.com">
+                        <i class="fa-regular fa-at"></i>
+                    </div>
+                    @error('email') <p class="error-info">{{$message}}!</p> @enderror
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
                 </div>
-            </div>
+                <div class="input @error('password') error @enderror">
+                    <label for="email">گذرواژه:</label>
+                    <div class="input-input">
+                        <input type="password" name="password" id="password" placeholder="........">
+                        <i class="fa-regular fa-eye-slash" id="fa-eye-slash-1" onclick="togglePasswordVisibility()"></i>
+                        <i class="fa-regular fa-eye" id="fa-eye-1" onclick="togglePasswordVisibility()" style="display: none;"></i>
+                    </div>
+                    @error('password') <p class="error-info">{{$message}}!</p> @enderror
+                </div>
+                <button>ورود</button>
+{{--                <div class="help">--}}
+{{--                    <p>گذرواژه خود را فراموش کردید؟</p>--}}
+{{--                    <a href="#">ورود با شماره تلفن</a>--}}
+{{--                </div><div class="help">--}}
+{{--                    <p>گذرواژه خود را فراموش کردید؟</p>--}}
+{{--                    <a href="#">ورود با شماره تلفن</a>--}}
+{{--                </div>--}}
+            </form>
         </div>
     </div>
 </div>
-@endsection
+<script src="js/loginregister.js"></script>
+</body>
+
+</html>

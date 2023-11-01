@@ -1,5 +1,5 @@
 <section id="first" class="container @if(app()->currentLocale() ==='en') ltr__direction @else rtl__direction @endif">
-        <article class="info">
+        <article class="info container">
             <h2 class="info__title">{{Trans::translate('brand__name')}}</h2>
             <p class="info__description">{{Trans::translate('brand__info')}}</p>
         </article>

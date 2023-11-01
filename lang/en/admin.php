@@ -31,7 +31,10 @@ return [
     'reserve__company__name' => 'Company Name',
     'reserve__company__email' => 'Company Email',
     'reserve__company__number' => 'Company Number',
-    'no__reserve' => 'There are no reservations for display'
+    'no__reserve' => 'There are no reservations for display',
+    'email' => 'Enter your Email',
+    'number' => 'Enter your number',
+    'co_name' => 'Enter Your Company Name'
 
 ]
 

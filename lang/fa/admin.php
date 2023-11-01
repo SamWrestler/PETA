@@ -31,6 +31,9 @@ return [
     'reserve__company__name' => 'نام شرکت',
     'reserve__company__email' => 'ایمیل شرکت',
     'reserve__company__number' => 'شماره شرکت',
-    'no__reserve' => 'رزروی برای نمایش وجود ندارد'
+    'no__reserve' => 'رزروی برای نمایش وجود ندارد',
+    'email' => 'ایمیل خود را وارد کنید',
+    'number' => 'شماره تلفن خود را وارد کنید',
+    'co_name' => 'نام شرکت خود را وارد کنید'
 ]
 ?>

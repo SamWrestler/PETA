@@ -6,10 +6,12 @@ let sliding_bar = document.querySelectorAll('.main__section__title');
 let sliding_bar_content = document.querySelectorAll('.main__section__content');
 
 reserve.addEventListener('click' , function(event){
+    window.location.hash = 'reserve';
     maingpage_section.classList.add('hidden');
     reserve_section.classList.remove('hidden');
 })
 maingpage.addEventListener('click' , function(event){
+    window.location.hash = 'mainpage';
     maingpage_section.classList.remove('hidden');
     reserve_section.classList.add('hidden');
 })
@@ -35,3 +37,9 @@ function openFunction(x){
         }
     });
 }
+
+
+document.getElementById("deleteFormLink").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent the default behavior of the link
+    document.getElementById("deleteForm").submit(); // Submit the form
+});
