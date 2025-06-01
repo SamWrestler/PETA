@@ -1,66 +1,89 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# PETA Co. - Company Resume Landing Page 
 
-## About Laravel
+A customizable company website built with Laravel and Blade, featuring a multilingual landing page, dynamic content management panel, and structured MySQL database with support for unlimited languages.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🚀 Key Features
 
-## Learning Laravel
+* Built with **Laravel MVC**, Blade templating, and **Eloquent ORM**
+* Full **multilingual support** with database-driven translations
+* **Admin-authenticated CMS panel** to manage all landing-page sections
+* Dynamic content blocks: hero, services, about us, team, contact, footer
+* **Responsive UI** with Bootstrap/Tailwind (via Vite)
+* SEO-friendly routing with language prefixes (`/en`, `/fa`, etc.)
+* **Contact form** with email notifications using Laravel Mail
+* Configurable site settings via `.env` and `config/`
+* **Daily content seeding, validation**, and user input sanitization
+* File storage with public uploads and media handling
+* **Ready for deployment** with Artisan commands and Vite bundling
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## How It Works
 
-## Laravel Sponsors
+1. **User visits the site (public pages)**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+   * The router (in `routes/web.php`) detects the requested URL (e.g. `/`, `/about`, `/services`).
+   * A middleware checks the current locale (e.g. `en` or `fa`) and loads the appropriate language strings from the database.
+   * The controller (e.g. `PageController@index`) retrieves content for that page—titles, descriptions, images—via Eloquent models (`Page`, `Section`, etc.).
+   * Blade templates render each section (hero banner, features, testimonials) using conditional loops to output both English and Persian fields.
+   * The visitor sees a fully populated, responsive landing page in their chosen language.
 
-### Premium Partners
+2. **Multi-language routing & content loading**
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+   * A localization middleware prefixes URLs with `/en/`, `/fa/`, etc., so switching languages simply reloads the same controller/action in a different locale.
+   * Each database table that stores text has separate columns (or a linked “translations” table) for `title_en`, `title_fa`, `content_en`, `content_fa`, allowing unlimited additional languages.
+   * When a visitor clicks the language switcher, the controller re-queries the same content in the new language and returns the page.
 
-## Contributing
+3. **Admin logs in & opens the CMS dashboard**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+   * The “Admin” middleware in `app/Http/Middleware/` guards all `/admin/*` routes. Only authenticated, authorized users (via Laravel’s Auth scaffolding) can proceed.
+   * Upon successful login, the admin is redirected to a dashboard (`AdminController@index`), which shows a list of editable modules: Pages, Sections, Banners, Team, Testimonials, Site Settings, etc.
 
-## Code of Conduct
+4. **Editing a landing-page section**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+   * The admin clicks “Edit Home Hero” (for example). A form in Blade appears, prefilled with the existing English/Persian titles, descriptions, and image fields.
+   * The admin updates text in both languages and uploads a new image if needed.
+   * On submit, a request hits `PageSectionController@update`, which validates each field (`Request` validation rules), saves text to the MySQL database via Eloquent, and stores any uploaded media in `storage/`.
+   * The controller clears any cached views and redirects back with a success message.
 
-## Security Vulnerabilities
+5. **Managing site settings & configuration**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+   * Under “Settings,” the admin can change global values (`config/site.php`) such as site name, default locale, or contact email.
+   * These values are stored in the database or in `.env`, then cached via `config:cache` for fast access on every page load.
 
-## License
+6. **Handling the contact form**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+   * When a visitor fills out “Name, Email, Message” on the Contact page, the form posts to `ContactController@send`.
+   * Server-side validation ensures all fields are present. If valid, Laravel’s `Mail` façade sends an email to the admin inbox.
+   * A “Thank you” Blade view or JSON response is returned, confirming receipt.
+
+7. **Database seeders & migrations**
+
+   * Running `php artisan migrate --seed` creates all tables (`pages`, `sections`, `languages`, etc.) and populates default content in multiple languages (via seeders).
+   * This provides a working site skeleton immediately—admin only needs to tweak text rather than build pages from scratch.
+
+8. **Asset compilation & front-end**
+
+   * Front-end assets (SCSS, JS) live in `resources/`. Webpack (via Vite) compiles them into `public/css` and `public/js` with hot-reload in local development.
+   * Blade layouts reference compiled files for a responsive, mobile-first UI using Bootstrap or Tailwind classes.
+
+9. **Error handling & logging**
+
+   * Any exceptions (e.g. validation failure, DB error) are caught by Laravel’s exception handler.
+   * Errors are logged to `storage/logs/laravel.log`.
+   * Visitors see a friendly 404/500 page generated by Blade.
+
+10. **Deployment flow**
+
+    * On the production server, the deployer runs:
+
+      1. `git pull` (get latest code)
+      2. `composer install --optimize-autoloader --no-dev`
+      3. `php artisan migrate --force --seed`
+      4. `php artisan config:cache && php artisan route:cache && php artisan view:cache`
+      5. `npm run build` (compile front-end)
+    * The site remains live with zero-downtime since migrations and caching happen atomically.
+
